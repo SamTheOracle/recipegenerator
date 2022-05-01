@@ -26,6 +26,7 @@ Le api si trovano nel package rest, dentro RecipeRest.
 
 I dati che passa il client sono trasformati in dati di Business Logic tramite i converter, allo stesso modo per restituirli (architettura esagonale https://medium.com/swlh/hexagonal-architecture-in-java-b980bfc07366).
 
+Per ogni api c'è un test di integrazione. Quarkus semplifica la vita, configurandoti direttamente il database con test container e facendo partire l'applicazione.
 
 COMANDI CURL DI TEST
 
