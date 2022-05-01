@@ -1,7 +1,8 @@
 RECIPE GENERATOR
 
-per farlo partire, piazzarsi sulla cartella devops ed eseguire il comando
+per farlo partire, piazzarsi sulla cartella devops ed eseguire i comandi
 
+docker-compose pull
 docker-compose up -d
 
 scarica dalla repo l'immagine pubblica oracolo/recipegenerator e scarica anche mysql
