@@ -3,11 +3,12 @@ version: '3.8'
 services:
   recipegenerator:
     image: oracolo/recipegenerator
-    restart: on-failure
     deploy:
+      restart_policy:
+        condition: on-failure
       resources:
         limits:
-          cpus: '0.50'
+          cpus: '0.80'
           memory: '500M'
         reservations:
           memory: '200M'
