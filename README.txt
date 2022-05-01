@@ -21,7 +21,10 @@ sono configurabili tramite variabile d'ambiente.
 Ci potevano essere anche altri possibili errori (es. una ricetta senza ingredienti), però non sono implementati.
 Ogni errore restituisce un codice che può essere usato in maniera dinamica da un potenziale frontend per tradurre nella lingua dell'utente.
 
-La creazione di una ricetta avviene tramite api POST che accetta una form, molto più semplice da gestire rispetto ad un JSON con il file passato come stringa da decodificare
+La creazione di una ricetta avviene tramite api POST che accetta una form, molto più semplice da gestire rispetto ad un JSON con il file passato come stringa da decodificare.
+
+La modifica degli ingredienti semplicemente rimpiazza quelli correnti con quelli passati tramite PUT.
+
 Le api si trovano nel package rest, dentro RecipeRest.
 
 I dati che passa il client sono trasformati in dati di Business Logic tramite i converter, allo stesso modo per restituirli (architettura esagonale https://medium.com/swlh/hexagonal-architecture-in-java-b980bfc07366).
