@@ -3,6 +3,7 @@ version: '3.8'
 services:
   recipegenerator:
     image: oracolo/recipegenerator
+    restart: on-failure
     deploy:
       resources:
         limits:
