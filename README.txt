@@ -29,10 +29,13 @@ Per ogni api c'è un test di integrazione. Quarkus semplifica la vita, configura
 
 COMANDI CURL DI TEST
 
-un po' di comandi curl per test per le varie api. Da dentro /devops/curltests, si possono eseguire i seguenti:
+un po' di comandi curl per test per le varie api. Attenzione perchè cambia un po' la forma dei comandi curl a seconda del sistema operativo. Da dentro /devops/curltests, si possono eseguire i seguenti:
 
 #crea una ricetta come form, in modo da gestire meglio l'upload con la foto della ricetta
-curl -X POST -H 'Content-Type: multipart/form-data' -F 'image=@softkitten.jpg' -F 'name=ricettabella' -F 'ingredients=[{\"name\":\"borraccia\"}]' http://localhost:8085/recipes
+#windows
+curl.exe -X POST -H 'Content-Type: multipart/form-data' -F 'image=@softkitten.jpg' -F 'name=ricettabella' -F 'ingredients=[{\"name\":\"borraccia\"}]' http://localhost:8085/recipes
+#ubuntu
+curl -X POST -H 'Content-Type: multipart/form-data' -F 'image=@softkitten.jpg' -F 'name=ricettabella' -F 'ingredients=[{"name":"borraccia"}]' http://localhost:8085/recipes
 
 #prende tutte le ricette che hanno nome e ingredienti. Per il nome la query usa il like, per gli ingredienti il like, creando un or per tutti quelli passati e
 un and tra nome e ingredienti
