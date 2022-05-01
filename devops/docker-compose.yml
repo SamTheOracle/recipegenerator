@@ -7,9 +7,9 @@ services:
       resources:
         limits:
           cpus: '0.50'
-          memory: '100M'
+          memory: '500M'
         reservations:
-          memory: '80M'
+          memory: '200M'
     ports:
       - "8085:8080"
     environment:
