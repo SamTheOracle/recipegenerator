@@ -11,12 +11,11 @@ DESCRIZIONE DEL PROGETTO
 Ci sono solo 3 tabelle (con le rispettive entity in Java): la relazione tra ingrediente e ricetta è many to many (perchè un ingrediente può essere in più ricette,
 una ricetta può avere più ingredienti), quindi la terza tabella è la classica bridge table.
 
-La gestione del Many to Many di Hibernate non è molto intelligente, non è neanche intuibile. Lato java, i POJO che le rappresentano sono nel package entities,
-mentre lo script sql che viene eseguito da liquibase una volta che parte l'applicativo è il file src/main/resources/db/creation.sql.
+Lato java, i POJO che rappresentano le tabelle sono nel package entities, mentre lo script sql che viene eseguito da liquibase una volta che parte l'applicativo è il file src/main/resources/db/creation.sql.
 
 Gli ingredienti vengono inseriti una sola volta per evitare i duplicati.
 
-Mi sono immaginato inoltre 3 possibili errori: la ricetta non viene trovata, viene passato un file troppo grande e ci sono troppo ingredienti nella ricetta (questi ultimi
+Mi sono immaginato inoltre 3 possibili errori: la ricetta non viene trovata, viene passato un file di immagine troppo grande e ci sono troppo ingredienti nella ricetta (questi ultimi
 sono configurabili tramite variabile d'ambiente.
 Ci potevano essere anche altri possibili errori (es. una ricetta senza ingredienti), però non sono implementati.
 Ogni errore restituisce un codice che può essere usato in maniera dinamica da un potenziale frontend per tradurre nella lingua dell'utente.
