@@ -1,0 +1,48 @@
+version: '3.8'
+
+services:
+  recipegenerator:
+    image: oracolo/recipegenerator
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: '100M'
+        reservations:
+          cpus: '0.25'
+          memory: '80M'
+    ports:
+      - "8085:8080"
+    environment:
+      - MAX_INGREDIENTS_PER_RECIPE=20
+      - IMAGE_MAX_SIZE=5242880
+      - MYSQL_HOST=mysql
+      - MYSQL_USER=recipeuser
+      - MYSQL_PASSWORD=recipeuser
+      - MYSQL_PORT=3306
+      - MYSQL_DB=recipedb
+    depends_on:
+      - mysql
+    networks:
+      - recipe_network
+  mysql:
+    image: mysql
+    deploy:
+      resources:
+        limits:
+          cpus: '0.4'
+          memory: '800M'
+        reservations:
+          cpus: '0.05'
+          memory: '300M'
+    ports:
+      - "3308:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=changeit
+      - MYSQL_USER=recipeuser
+      - MYSQL_PASSWORD=recipeuser
+      - MYSQL_DATABASE=recipedb
+    networks:
+      - recipe_network
+networks:
+  recipe_network:
